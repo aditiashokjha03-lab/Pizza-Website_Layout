@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Website Layout</title>
+    <style>
+    /* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    padding: 0;
+    color: #333;
+}
+
+/* --- 1. Navbar Section Styling (Flexbox) --- */
+
+nav {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 15px 5%;
+    border-bottom: 1px solid #ddd; 
+}
+
+/* Logo/Brand Name */
+nav p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #006491; 
+    margin-right: 20px;
+}
+
+/* Navigation Links Container */
+nav div {
+    display: flex;
+    flex-grow: 1; 
+    justify-content: flex-start; 
+    gap: 10px;
+}
+
+/* Individual Navigation Links */
+nav div a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 10px;
+    transition: color 0.2s;
+}
+
+nav div a:hover {
+    color: #d81920; 
+}
+
+/* Download App Button */
+nav button {
+    background-color: #d81920; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* --- 2. Top Section Styling (CSS Grid) --- */
+
+.top-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: auto auto; 
+    gap: 15px; 
+    padding: 30px 5%;
+}
+
+.card {
+    background-color: #d81920; 
+    color: white;
+    padding: 20px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+    border-radius: 5px;
+    min-height: 350px;
+}
+
+/* Pizza image */
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; 
+    border: 5px solid white; 
+    object-fit: cover; 
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Description paragraph (only in row 1 cards) */
+.card p {
+    font-size: 13px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+/* VIEW ALL button */
+.card button {
+    background-color: white; 
+    color: #d81920; 
+    border: none;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+/* Styling for the second row cards (image only) */
+.card.simple-card {
+    padding: 15px; 
+    justify-content: center;
+    min-height: 100px;
+}
+
+.card.simple-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+}
+
+/* --- 3. Mid Section Styling (CSS Grid) --- */
+
+.mid-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px; 
+    padding: 30px 5%;
+    background-color: #f4f4f4; 
+}
+
+.mid-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #eee;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 250px; 
+}
+
+/* Icon image */
+.mid-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.mid-card h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Description paragraph */
+.mid-card p {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    flex-grow: 1; 
+}
+
+/* 'DISCOVER PIZZA' link/button */
+.mid-card a {
+    text-decoration: none;
+    color: #d81920; 
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #d81920;
+    padding: 8px 15px;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.mid-card a:hover {
+    background-color: #d81920;
+    color: white;
+}
+
+/* --- 4. Bottom Section Styling (Flexbox) --- */
+
+.bottom-section {
+    display: flex; 
+    align-items: center;
+    padding: 50px 5%;
+    justify-content: space-around;
+    background-color: white; 
+}
+
+/* Left Column: Screenshots */
+.bottom-left {
+    display: flex;
+    position: relative;
+    width: 45%; 
+    justify-content: center;
+    height: 400px;
+}
+
+.bottom-left img {
+    height: 350px; 
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    position: absolute;
+
+/* Positioning the second phone screen partially over the first */
+.bottom-left .screenshot{
+    z-index: 1;
+    left: 15%; 
+    top: 50px;
+}
+
+/* Right Column: Text and Buttons */
+.bottom-right {
+    width: 45%;
+}
+
+.bottom-right h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.bottom-right p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* App Buttons Container */
+.app-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Store buttons */
+.store-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 11px;
+    line-height: 1.2;
+    transition: background-color 0.2s;
+    min-width: 170px;
+}
+
+.store-button img {
+    height: 30px; 
+    width: 30px;
+    margin-right: 10px;
+    border: none;
+    box-shadow: none;
+}
+
+.store-button span {
+    text-align: left;
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+     <header>
+        <nav>
+            <p>Domino's Pizza</p>
+            <div>
+                <a href="#">OUR MENU</a>
+                <a href="#">DOMINO'S STORIES</a>
+                <a href="#">GIFT CARD</a>
+                <a href="#">CORPORATE ENQUIRY</a>
+                <a href="#">CONTACT</a>
+            </div>
+            <button>Download App</button>
+        </nav>
+        </header>
+
+        <!-- Top Section -->
+        <section class="top-section">
+            <div class="card">
+                <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png" alt="Pizza">
+                <h3>VEG PIZZA</h3>
+                <p>A delight for veggie lovers! Choose from our wide range of delicious vegetarian pizzas, it's softer and tastier</p>
+                <button>VIEW ALL</button>
+            </div>
+
+            <div class="card">
+                <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png" alt="Pizza">
+                <h3>OUR MENU</h3>
+                <p>Indulge into mouth-watering taste of Pizza mania range, perfect answer to all of your food cravings</p>
+                <button>VIEW ALL</button>
+            </div>
+            
+            <div class="card">
+                <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png" alt="Pizza">
+                <h3>OUR MENU</h3>
+                <p>Choose your favorite non-veg pizzas from the Domino's Pizza menu. Get fresh non-veg pizza with your choice of crusts & toppings</p>
+                <button>VIEW ALL</button>
+            </div>
+            
+            <div class="card">
+                <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png" alt="Pizza">
+                <h3>OUR MENU</h3>
+                <p>Choose your favorite non-veg pizzas from the Domino's Pizza menu. Get fresh non-veg pizza with your choice of crusts & toppings</p>
+                <button>VIEW ALL</button>
+            </div>
+            
+            <div class="card">
+                <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png" alt="Pizza">
+                <h3>VEG PIZZA</h3>
+                <p>A delight for veggie lovers! Choose from our wide range of delicious vegetarian pizzas, it's softer and tastier</p>
+                <button>VIEW ALL</button>
+            </div>
+            
+            <div class="card">
+                <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png" alt="Pizza">
+                <h3>OUR MENU</h3>
+                <p>Indulge into mouth-watering taste of Pizza mania range, perfect answer to all of your food cravings</p>
+                <button>VIEW ALL</button>
+            </div>
+        </section>
+
+        <!-- Mid Section -->
+    <section class="mid-section">
+        <div class="mid-card">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png" alt="Our Menu Icon">
+            <h4>OUR MENU</h4>
+            <p>Explore our range of delicious Pizzas, delivered in 30 minutes</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="mid-card">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png" alt="Our Menu Icon">
+            <h4>OUR MENU</h4>
+            <p>Explore our range of delicious Pizzas, delivered in 30 minutes</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="mid-card">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png" alt="Our Menu Icon">
+            <h4>OUR MENU</h4>
+            <p>Explore our range of delicious Pizzas, delivered in 30 minutes</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="mid-card">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png" alt="Our Menu Icon">
+            <h4>OUR MENU</h4>
+            <p>Explore our range of delicious Pizzas, delivered in 30 minutes</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+        
+        <div class="mid-card">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png" alt="Our Menu Icon">
+            <h4>OUR MENU</h4>
+            <p>Explore our range of delicious Pizzas, delivered in 30 minutes</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+        
+        <div class="mid-card">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png" alt="Our Menu Icon">
+            <h4>OUR MENU</h4>
+            <p>Explore our range of delicious Pizzas, delivered in 30 minutes</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+        
+        <div class="mid-card">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png" alt="Our Menu Icon">
+            <h4>OUR MENU</h4>
+            <p>Explore our range of delicious Pizzas, delivered in 30 minutes</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+        
+        <div class="mid-card">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png" alt="Our Menu Icon">
+            <h4>OUR MENU</h4>
+            <p>Explore our range of delicious Pizzas, delivered in 30 minutes</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+    </section>
+    
+    <!-- Bottom Section -->
+    <section class="bottom-section">
+
+        <div class="bottom-left">
+            <img class="screenshot" src="https://www.dominos.co.in/assets/new_app_img@2x.png" alt="Domino's App Screenshot">
+        </div>
+
+        <div class="bottom-right">
+            <h1>Unlock Exclusive Offers</h1>
+            <p>For lightning fast ordering experience download the Domino's app.</p>
+            
+            <div class="app-buttons">
+                <a href="#" class="store-button">
+                    <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%202.47.09%20PM_558991.png" alt="Get it on Google Play">
+                    <span>GET IT ON <br> *Google Play*</span>
+                </a>
+
+                <a href="#" class="store-button">
+                    <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%202.47.43%20PM_652243.png" alt="Download on the App Store">
+                    <span>Download on the <br> *App Store*</span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
